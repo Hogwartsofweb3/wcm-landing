@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing & Career Mastery — 12-Week Cohort</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF8;
+    --paper-dim:#F1F0EB;
+    --ink:#1B1B1F;
+    --ink-soft:#55555C;
+    --red:#B23A30;
+    --red-soft:#E7C9C6;
+    --teal:#1F6F5C;
+    --teal-soft:#D8E8E3;
+    --rule:#D8D6CE;
+    --radius:2px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--red);
+  }
+  h1,h2,h3{font-family:'Source Serif 4',serif;font-weight:700;margin:0;}
+  .serif-italic{font-style:italic;font-weight:400;}
+
+  /* ---------- Header ---------- */
+  header{
+    padding:22px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  header .wrap{display:flex;justify-content:space-between;align-items:center;}
+  .brand{font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:0.04em;}
+  .brand strong{color:var(--red);}
+  nav a{font-size:14px;text-decoration:none;color:var(--ink-soft);margin-left:28px;}
+  nav a:hover, nav a:focus-visible{color:var(--ink);}
+
+  /* ---------- Hero: manuscript edit mark ---------- */
+  .hero{padding:72px 0 56px;}
+  .hero .eyebrow{margin-bottom:18px;}
+  .hero h1{font-size:clamp(34px,5.4vw,54px);line-height:1.12;letter-spacing:-0.01em;}
+  .manuscript{
+    margin-top:38px;
+    background:#fff;
+    border:1px solid var(--rule);
+    border-radius:var(--radius);
+    padding:32px 36px;
+    box-shadow:0 1px 0 rgba(0,0,0,0.02);
+    position:relative;
+  }
+  .manuscript::before{
+    content:"DRAFT — MARKED";
+    position:absolute;
+    top:-11px;left:32px;
+    background:var(--paper);
+    padding:0 8px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    color:var(--ink-soft);
+  }
+  .ms-line{
+    font-family:'Source Serif 4',serif;
+    font-size:clamp(19px,2.6vw,24px);
+    line-height:1.65;
+  }
+  .strike{
+    color:#9a9a9a;
+    text-decoration:line-through;
+    text-decoration-color:var(--red);
+    text-decoration-thickness:1.5px;
+  }
+  .insert{
+    color:var(--teal);
+    font-weight:600;
+  }
+  .margin-note{
+    margin-top:18px;
+    padding-left:14px;
+    border-left:2px solid var(--red);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    color:var(--red);
+  }
+  .hero-sub{
+    margin-top:30px;
+    font-size:18px;
+    color:var(--ink-soft);
+    max-width:60ch;
+  }
+  .cta-row{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:14px;
+    letter-spacing:0.03em;
+    padding:13px 22px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    border:1px solid var(--ink);
+    transition:background .15s ease, color .15s ease;
+  }
+  .btn-primary{background:var(--ink);color:var(--paper);}
+  .btn-primary:hover,.btn-primary:focus-visible{background:var(--red);border-color:var(--red);}
+  .btn-ghost{color:var(--ink);}
+  .btn-ghost:hover,.btn-ghost:focus-visible{background:var(--paper-dim);}
+
+  /* ---------- Section shell ---------- */
+  section{padding:56px 0;border-top:1px solid var(--rule);}
+  .section-head{margin-bottom:28px;}
+  .section-head .eyebrow{margin-bottom:10px;}
+  .section-head h2{font-size:clamp(24px,3.4vw,32px);}
+
+  /* ---------- AI objection ---------- */
+  .objection p{max-width:70ch;font-size:16.5px;}
+  .objection p + p{margin-top:14px;}
+  .pull{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:22px;
+    color:var(--ink);
+    border-left:3px solid var(--teal);
+    padding-left:18px;
+    margin:26px 0;
+    max-width:56ch;
+  }
+
+  /* ---------- Assets ---------- */
+  .assets{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .asset-card{
+    background:#fff;border:1px solid var(--rule);border-radius:var(--radius);
+    padding:22px;
+  }
+  .asset-card .num{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--red);letter-spacing:0.08em;}
+  .asset-card h3{font-size:18px;margin-top:8px;margin-bottom:8px;}
+  .asset-card p{margin:0;color:var(--ink-soft);font-size:14.5px;}
+
+  /* ---------- Week table ---------- */
+  table{width:100%;border-collapse:collapse;font-size:14.5px;}
+  th{
+    text-align:left;font-family:'IBM Plex Mono',monospace;font-size:11px;
+    letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);
+    padding:10px 12px;border-bottom:1px solid var(--rule);
+  }
+  td{padding:14px 12px;border-bottom:1px solid var(--rule);vertical-align:top;}
+  td.wk{font-family:'IBM Plex Mono',monospace;color:var(--red);white-space:nowrap;font-size:13px;}
+  tr:last-child td{border-bottom:none;}
+
+  /* ---------- Who it's for ---------- */
+  .fit-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+  .fit-list li{
+    display:flex;gap:12px;font-size:15.5px;padding:14px 16px;
+    background:#fff;border:1px solid var(--rule);border-radius:var(--radius);
+  }
+  .fit-list .mark{color:var(--teal);font-family:'IBM Plex Mono',monospace;font-weight:600;}
+
+  /* ---------- Apply ---------- */
+  .apply-box{
+    background:var(--ink);color:var(--paper);
+    border-radius:var(--radius);
+    padding:40px 36px;
+  }
+  .apply-box h2{color:var(--paper);}
+  .apply-box p{color:#C9C9CE;max-width:56ch;}
+  .form-embed{
+    margin-top:26px;
+    background:var(--paper);
+    border-radius:var(--radius);
+    min-height:420px;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--ink-soft);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    text-align:center;
+    padding:24px;
+    border:1px dashed var(--rule);
+  }
+  /* Once your Google Form is ready, delete the placeholder div below
+     and paste your <iframe> embed code from Google Forms in its place. */
+
+  footer{padding:34px 0 60px;color:var(--ink-soft);font-size:13px;}
+
+  @media (max-width:640px){
+    .assets{grid-template-columns:1fr;}
+    table, thead, tbody, th, td, tr{display:block;}
+    thead{display:none;}
+    td{border-bottom:none;padding:6px 0;}
+    tr{padding:14px 0;border-bottom:1px solid var(--rule);}
+    td.wk{color:var(--red);}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+
+  :focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand"><strong>WCM</strong> / Writing &amp; Career Mastery</div>
+    <nav>
+      <a href="#program">Program</a>
+      <a href="#weeks">Weeks</a>
+      <a href="#fit">Who It's For</a>
+      <a href="#apply">Apply</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">A 3-Month Cohort</div>
+    <h1>Writing that gets<br><span class="serif-italic">hired</span>, not just written.</h1>
+
+    <div class="manuscript">
+      <p class="ms-line">
+        <span class="strike">I am a passionate writer with a love for words.</span><br>
+        <span class="insert">I write API documentation that cuts support tickets — here's the repo.</span>
+      </p>
+      <div class="margin-note">✎ evidence, not adjectives — clarity beats cleverness</div>
+    </div>
+
+    <p class="hero-sub">
+      A 12-week, live mentorship covering writing craft and the job side of writing — positioning,
+      outreach, pitching — so you leave with a real portfolio and a system for getting paid, not just a
+      certificate.
+    </p>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#apply">Apply for the cohort</a>
+      <a class="btn btn-ghost" href="#program">See what's covered</a>
+    </div>
+  </div>
+</section>
+
+<section id="program" class="objection">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Before You Ask</div>
+      <h2>"Isn't AI already doing this?"</h2>
+    </div>
+    <p>
+      AI didn't replace writers — it replaced undifferentiated writing. Generic, keyword-stuffed content
+      that could be about any product in any category is exactly what AI produces on its own, and
+      companies have stopped paying humans for that.
+    </p>
+    <p class="pull">What's gotten more valuable is what AI can't do alone: original research, real subject-matter depth, editorial judgment, and a voice worth trusting.</p>
+    <p>
+      This program is built around that gap — including teaching you to use AI-assisted drafting
+      deliberately and edit it into something accurate and human, because that's the actual job in most
+      professional writing roles right now.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What You Leave With</div>
+      <h2>A live 4-asset portfolio</h2>
+    </div>
+    <div class="assets">
+      <div class="asset-card">
+        <div class="num">Asset 01</div>
+        <h3>The Content Asset</h3>
+        <p>An SEO-optimized long-form post, published live — proof you can write for search and for people at once.</p>
+      </div>
+      <div class="asset-card">
+        <div class="num">Asset 02</div>
+        <h3>The User-Guide Asset</h3>
+        <p>A Diátaxis-structured guide in Markdown — the documentation discipline real dev teams use.</p>
+      </div>
+      <div class="asset-card">
+        <div class="num">Asset 03</div>
+        <h3>The API Asset</h3>
+        <p>Interactive docs for a mock REST API — endpoints, payloads, and status codes, tested and written up.</p>
+      </div>
+      <div class="asset-card">
+        <div class="num">Asset 04</div>
+        <h3>The UX Case Study</h3>
+        <p>A microcopy audit and rewrite of a real interface, with before/after reasoning.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="weeks">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">The 12 Weeks</div>
+      <h2>Craft first, then the career system</h2>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Weeks</th><th>Focus</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="wk">01–06</td><td>Writing craft + all 4 portfolio assets built and published</td></tr>
+        <tr><td class="wk">07</td><td>Positioning &amp; personal brand — choosing a niche, LinkedIn presence</td></tr>
+        <tr><td class="wk">08</td><td>Finding the work — outreach templates, a tracker, real sends</td></tr>
+        <tr><td class="wk">09</td><td>Rate-setting, scoping, and application materials</td></tr>
+        <tr><td class="wk">10</td><td>Portfolio deployment, a real pitch letter, closing a client</td></tr>
+        <tr><td class="wk">11</td><td>Portfolio polish, mock interview, mock client call</td></tr>
+        <tr><td class="wk">12</td><td>Live portfolio defense &amp; a 90-day plan</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="fit">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Who This Is For</div>
+      <h2>Be honest with yourself before applying</h2>
+    </div>
+    <ul class="fit-list">
+      <li><span class="mark">✓</span> You can already write a clean, grammatical paragraph — we're refining, not starting from zero.</li>
+      <li><span class="mark">✓</span> You've finished something on your own before, without someone requiring it of you.</li>
+      <li><span class="mark">✓</span> You have real time: two live sessions a week, plus assignments, for 12 straight weeks.</li>
+      <li><span class="mark">✓</span> You want paid writing work as the outcome — not writing as a hobby.</li>
+      <li><span class="mark">✓</span> You're willing to do outreach — cold emails, cold DMs, real applications — starting around Week 7.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="apply">
+  <div class="wrap">
+    <div class="apply-box">
+      <div class="eyebrow" style="color:#8FA89E;">Applications</div>
+      <h2>Ready to apply?</h2>
+      <p>
+        The application is a short writing sample plus a few questions about your time and goals — free
+        to apply, no obligation until you're accepted. Subsidized rate: <strong style="color:#fff;">₦15,000</strong>, payment details shared upon
+        acceptance.
+      </p>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:#8FA89E;margin-top:14px;">
+        Applications close Aug 31 · Cohort starts Sept 3 · Limited to 30 spots
+      </p>
+
+      <div class="form-embed">
+        Paste your Google Form &lt;iframe&gt; embed code here,<br>
+        replacing this placeholder block.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Writing &amp; Career Mastery — Mentor: Michael Nwadinso Okoro · Questions? DM on WhatsApp.
+  </div>
+</footer>
+
+</body>
+</html>
